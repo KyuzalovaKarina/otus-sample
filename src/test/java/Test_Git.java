@@ -26,11 +26,11 @@ public class Test_Git {
         driver.findElement(By.cssSelector("svg.ui-ai2")).click();
         driver.findElement(By.cssSelector("svg.ui-ai2")).click();
         //кнопка в корзину
-        driver.findElement(By.xpath("//div[@id='__layout']/div/div/div[2]/div[2]/div[2]/div[2]/div/div/div/div/div/div/div[3]/div/button")).click();
-        driver.findElement(By.cssSelector("svg.a8n")).click();
+        driver.findElement(By.xpath("//button[@qa-id='tile-buy-button']")).click(); // Fixed the locator here
+        driver.findElement(By.cssSelector("svg.a3e8")).click(); // Fixed the locator here
         //кнопка удалить из корзины
-        driver.findElement(By.xpath("//div[@id='__layout']/div/div/div/div/div[3]/div[5]/div/div/div/div[2]/div[3]/div[2]/div[2]/span[2]")).click();
-        driver.findElement(By.xpath("//div[3]/button/div")).click();
+        driver.findElement(By.xpath("//div[@class='column md-8']//span[2]")).click(); // Fixed the locator here
+        driver.findElement(By.xpath("//div[@class='ui-b7 g3']")).click(); // Fixed the locator here
     }
 
     @After
