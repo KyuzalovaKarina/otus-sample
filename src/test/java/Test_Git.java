@@ -34,8 +34,8 @@ public class Test_Git {
         //кнопка в корзину
         if(isElementPresent(By.xpath(".//div[.//p[contains(text(),'Используя сайт OZON, вы соглашаетесь с использованием файлов cookie')]]")))
             driver.findElement(By.xpath(".//button[@aria-label='Закрыть сообщение']")).click();
-        if (isElementPresent(By.xpath(".//button[.//div[text()='В корзину ']]")))
-            driver.findElement(By.xpath(".//button[.//div[text()='В корзину ']]")).click();
+        if (isElementPresent(By.xpath(".//button[.//div[contains(text(),'В корзину')]]")))
+            driver.findElement(By.xpath(".//button[.//div[contains(text(),'В корзину')]]")).click();
         driver.findElement(By.xpath(".//a[.//span[contains(text(), 'Корзина')]]")).click();
         //кнопка удалить из корзины
         WebDriverWait wait = new WebDriverWait(driver, 50L);
