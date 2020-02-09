@@ -1,8 +1,14 @@
-import java.util.concurrent.TimeUnit;
-import org.junit.*;
-import static org.junit.Assert.*;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.concurrent.TimeUnit;
+
+import static org.junit.Assert.fail;
 
 public class Test_Git {
     private WebDriver driver;
@@ -26,11 +32,18 @@ public class Test_Git {
         driver.findElement(By.cssSelector("svg.ui-ai2")).click();
         driver.findElement(By.cssSelector("svg.ui-ai2")).click();
         //кнопка в корзину
-        driver.findElement(By.xpath("//div[@class='a2u6']/div[1]//button[@qa-id='tile-buy-button']")).click(); // Fixed the locator here (Locator for the first element in the list)
-        driver.findElement(By.cssSelector(".f-caption--bold")).click(); // Fixed the locator here (Replaced dynamic svg on the css class)
+        if(isElementPresent(By.xpath(".//div[.//p[contains(text(),'Используя сайт OZON, вы соглашаетесь с использованием файлов cookie')]]")))
+            driver.findElement(By.xpath(".//button[@aria-label='Закрыть сообщение']")).click();
+        if (isElementPresent(By.xpath(".//button[.//div[contains(text(),'В корзину')]]")))
+            driver.findElement(By.xpath(".//button[.//div[contains(text(),'В корзину')]]")).click();
+        driver.findElement(By.xpath(".//a[.//span[contains(text(), 'Корзина')]]")).click();
         //кнопка удалить из корзины
-        driver.findElement(By.xpath("//div[@class='column md-8']//span[2]")).click(); // Fixed the locator here
-        driver.findElement(By.xpath("//div[@class='ui-b7 h4']//div[@class='ui-aa5']")).click(); // Fixed the locator here (Fixed this locator too)
+        WebDriverWait wait = new WebDriverWait(driver, 50L);
+        WebElement element = wait.until(
+                ExpectedConditions.presenceOfElementLocated(By.xpath(".//span[contains(text(),'Удалить выбранные')]")));
+        element.click();
+        if(isElementPresent(By.xpath(".//div[@data-test-id = 'modal-container']")))
+            driver.findElement(By.xpath(".//button[.//div[contains(text(),'Удалить')]]")).click();
     }
 
     @After
