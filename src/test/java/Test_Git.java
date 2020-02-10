@@ -51,7 +51,7 @@ public class Test_Git {
         driver.findElement(By.xpath("//div[@class='ui-aa5'][contains(text(), 'В корзину')]")).click();
         driver.findElement(By.xpath("//a[@href='/cart']")).click();
         //кнопка удалить из корзины
-
+      
         driver.findElement(By.xpath("//span[contains(text(), 'Удалить выбранные')]")).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='ui-aa5'][contains(text(), 'Удалить')]")));
         driver.findElement(By.xpath("//div[@class='ui-aa5'][contains(text(), 'Удалить')]")).click();
