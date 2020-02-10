@@ -26,11 +26,11 @@ public class Test_Git {
         driver.findElement(By.cssSelector("svg.ui-ai2")).click();
         driver.findElement(By.cssSelector("svg.ui-ai2")).click();
         //кнопка в корзину
-        driver.findElement(By.cssSelector(".a7l6:nth-child(1) .a8x6 .ui-aa5")).click();
-        driver.findElement(By.cssSelector("svg.a8n")).click();
+        driver.findElement(By.xpath("//div[@class='a2u6']/div[1]//button[@qa-id='tile-buy-button']")).click();
+        driver.findElement(By.cssSelector(".f-caption--bold")).click();
         //кнопка удалить из корзины
-        driver.findElement(By.cssSelector(".ui-aa5:nth-child(1)")).click();
-        driver.findElement(By.xpath("//div[3]/button/div")).click();
+        driver.findElement(By.xpath("//div[@class='column md-8']//span[2]")).click();
+        driver.findElement(By.xpath("//div[@class='ui-b7 h4']//div[@class='ui-aa5']")).click();
     }
 
     @After
