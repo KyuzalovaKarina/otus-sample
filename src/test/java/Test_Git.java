@@ -38,6 +38,15 @@ public class Test_Git {
         driver.get("https://www.ozon.ru/");
         driver.findElement(By.name("search")).clear();
         driver.findElement(By.name("search")).sendKeys("java шилдт");
+        driver.findElement(By.cssSelector("svg.ui-ai2")).click();
+        driver.findElement(By.cssSelector("svg.ui-ai2")).click();
+        //кнопка в корзину
+        driver.findElement(By.xpath("//div[@class='a2u6']/div[1]//button[@qa-id='tile-buy-button']")).click();
+        driver.findElement(By.cssSelector(".f-caption--bold")).click();
+        //кнопка удалить из корзины
+        driver.findElement(By.xpath("//div[@class='column md-8']//span[2]")).click();
+        driver.findElement(By.xpath("//div[@class='ui-b7 h4']//div[@class='ui-aa5']")).click();
+
         driver.findElement(By.cssSelector("button[qa-id=\"header-search-go\"]")).click();
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("div[data-widget=\"megaPaginator\"]>div:nth-child(1) > div[class=\"dots dots-blue\"]")));
        //кнопка в корзину
