@@ -5,6 +5,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -15,7 +16,7 @@ import static org.junit.Assert.fail;
 public class Test_Git {
     private WebDriver driver;
     WebDriverWait wait;
-    private String baseUrl;
+    private String baseUrl = "https://www.ozon.ru/";
     private boolean acceptNextAlert = true;
     private StringBuffer verificationErrors = new StringBuffer();
 
@@ -26,30 +27,39 @@ public class Test_Git {
     }
 
     @Before
-    public void setUp() throws Exception {
-        driver = new ChromeDriver();
-        baseUrl = "https://www.google.com/";
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        wait = new WebDriverWait(driver,10);
+    public void setUp() {
+        WebDriverManager.chromedriver().setup();
+        ChromeOptions opt = new ChromeOptions();
+        opt.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+        driver = new ChromeDriver(opt);
+        driver.manage().deleteAllCookies();
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        wait = new WebDriverWait(driver, 5);
     }
 
     @Test
-    public void testSampleCase() throws Exception {
-        driver.get("https://www.ozon.ru/");
+    public void testSampleCase() {
+        driver.get(baseUrl);
         driver.findElement(By.name("search")).clear();
         driver.findElement(By.name("search")).sendKeys("java шилдт");
-        driver.findElement(By.name("search")).sendKeys(Keys.RETURN);
+        driver.findElement(By.name("search")).sendKeys(Keys.ENTER);
         //кнопка в корзину
-        driver.findElement(By.xpath("//div[contains(@class,'ui-aa5') and contains(text(), 'В корзину')]")).click();
-        driver.findElement(By.xpath("//a[contains(@href,'/cart')]")).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(), 'Java. Полное руководство | Шилдт Герберт')]")));
+//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h1[contains(text(), 'Компьютерные технологии')]")));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='ui-aa5'][contains(text(), 'В корзину')]")));
+        driver.findElement(By.xpath("//div[@class='ui-aa5'][contains(text(), 'В корзину')]")).click();
+        driver.findElement(By.xpath("//a[@href='/cart']")).click();
         //кнопка удалить из корзины
-        driver.findElement(By.xpath("//span[contains(@class,'a6d3') and contains(text(), 'Удалить')]")).click();
-        driver.findElement(By.xpath("//div[contains(@class,'ui-aa5') and contains(text(), 'Удалить')]")).click();
+
+        driver.findElement(By.xpath("//span[contains(text(), 'Удалить выбранные')]")).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='ui-aa5'][contains(text(), 'Удалить')]")));
+        driver.findElement(By.xpath("//div[@class='ui-aa5'][contains(text(), 'Удалить')]")).click();
 
     }
 
     @After
-    public void tearDown() throws Exception {
+    public void tearDown() {
         driver.quit();
         String verificationErrorString = verificationErrors.toString();
         if (!"".equals(verificationErrorString)) {
@@ -90,3 +100,4 @@ public class Test_Git {
         }
     }
 }
+
