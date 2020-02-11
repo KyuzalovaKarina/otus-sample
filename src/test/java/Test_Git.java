@@ -5,6 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -15,7 +16,7 @@ import static org.junit.Assert.fail;
 public class Test_Git {
     private WebDriver driver;
     WebDriverWait wait;
-    private String baseUrl;
+    private String baseUrl = "https://www.ozon.ru/";
     private boolean acceptNextAlert = true;
     private StringBuffer verificationErrors = new StringBuffer();
 
@@ -35,12 +36,13 @@ public class Test_Git {
     }
 
     @Test
-    public void testSampleCase() throws Exception {
-        driver.get("https://www.ozon.ru/");
+    public void testSampleCase() {
+        driver.get(baseUrl);
         driver.findElement(By.name("search")).clear();
         driver.findElement(By.name("search")).sendKeys("java шилдт");
-        driver.findElement(By.name("search")).sendKeys(Keys.RETURN);
+        driver.findElement(By.name("search")).sendKeys(Keys.ENTER);
         //кнопка в корзину
+
         if(isElementPresent(By.xpath(".//div[.//p[contains(text(),'Используя сайт OZON, вы соглашаетесь с использованием файлов cookie')]]")))
             driver.findElement(By.xpath(".//button[@aria-label='Закрыть сообщение']")).click();
         driver.findElement(By.xpath(".//div[contains(text(),'В корзину')]")).click(); // Fixed the locator here (Locator for the first element in the list)
@@ -52,12 +54,11 @@ public class Test_Git {
         element.click();
         if(isElementPresent(By.xpath(".//div[@data-test-id = 'modal-container']")))
             driver.findElement(By.xpath(".//button[.//div[contains(text(),'Удалить')]]")).click();
-
     }
 
 
     @After
-    public void tearDown() throws Exception {
+    public void tearDown() {
         driver.quit();
         String verificationErrorString = verificationErrors.toString();
         if (!"".equals(verificationErrorString)) {
@@ -98,3 +99,4 @@ public class Test_Git {
         }
     }
 }
+
