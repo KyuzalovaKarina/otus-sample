@@ -22,7 +22,7 @@ public class Test_Git {
     @Test
     public void testSampleCase() throws Exception {
         driver.get("https://www.ozon.ru/");
-        driver.findElement(By.name("search")).clear();
+        driver.findElement(By.xpath("(//input[@name='search'])")).clear();
         driver.findElement(By.name("search")).sendKeys("java шилдт");
         driver.findElement(By.cssSelector("svg.ui-ai2")).click();
         driver.findElement(By.cssSelector("svg.ui-ai2")).click();
