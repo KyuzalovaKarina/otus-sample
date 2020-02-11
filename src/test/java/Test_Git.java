@@ -41,11 +41,13 @@ public class Test_Git {
         driver.findElement(By.cssSelector("svg.ui-ai2")).click();
         driver.findElement(By.cssSelector("svg.ui-ai2")).click();
         //кнопка в корзину
-        driver.findElement(By.xpath("//div[contains(@class, 'widget-search-result-container')]//*[@qa-id='tile-buy-button']")).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='ui-aa5'][contains(text(), 'В корзину')]")));
+        driver.findElement(By.xpath("//div[@class='ui-aa5'][contains(text(), 'В корзину')]")).click();
         driver.findElement(By.cssSelector("[data-widget='cart'] .f-caption--bold")).click();
         //кнопка удалить из корзины
-        driver.findElement(By.xpath("//span[contains(@class,'cj3') and contains(text(), 'Удалить')]")).click();
-        driver.findElement(By.xpath("//div[contains(@class,'ui-aa5') and contains(text(), 'Удалить')]")).click();
+        driver.findElement(By.xpath("//span[contains(text(), 'Удалить выбранные')]")).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='ui-aa5'][contains(text(), 'Удалить')]")));
+        driver.findElement(By.xpath("//div[@class='ui-aa5'][contains(text(), 'Удалить')]")).click();
     }
 
     @After
