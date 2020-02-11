@@ -1,65 +1,46 @@
+import java.util.concurrent.TimeUnit;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.*;
+import static org.junit.Assert.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.util.concurrent.TimeUnit;
-
-import static org.junit.Assert.fail;
 
 public class Test_Git {
     private WebDriver driver;
-    WebDriverWait wait;
-    private String baseUrl = "https://www.ozon.ru/";
+    private String baseUrl;
     private boolean acceptNextAlert = true;
     private StringBuffer verificationErrors = new StringBuffer();
 
-    @BeforeClass
-    public static void setUpClass()
-    {
-        WebDriverManager.chromedriver().setup();
-    }
-
     @Before
-    public void setUp() {
+    public void setUp() throws Exception {
         WebDriverManager.chromedriver().setup();
-        ChromeOptions opt = new ChromeOptions();
-        opt.setPageLoadStrategy(PageLoadStrategy.NORMAL);
-        driver = new ChromeDriver(opt);
-        driver.manage().deleteAllCookies();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        wait = new WebDriverWait(driver, 5);
+        driver = new ChromeDriver();
+        baseUrl = "https://www.google.com/";
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
     @Test
-    public void testSampleCase() {
-        driver.get(baseUrl);
+    public void testSampleCase() throws Exception {
+        driver.get("https://www.ozon.ru/");
         driver.findElement(By.name("search")).clear();
         driver.findElement(By.name("search")).sendKeys("java шилдт");
-        driver.findElement(By.name("search")).sendKeys(Keys.ENTER);
+        driver.findElement(By.cssSelector("svg.ui-ai2")).click();
+        driver.findElement(By.cssSelector("svg.ui-ai2")).click();
         //кнопка в корзину
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(), 'Java. Полное руководство | Шилдт Герберт')]")));
-//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h1[contains(text(), 'Компьютерные технологии')]")));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='ui-aa5'][contains(text(), 'В корзину')]")));
-        driver.findElement(By.xpath("//div[@class='ui-aa5'][contains(text(), 'В корзину')]")).click();
-        driver.findElement(By.xpath("//a[@href='/cart']")).click();
+        WebElement addToCart = driver.findElement(By.cssSelector(".a8x6>.a8w8>div>div>button"));
+        JavascriptExecutor executor = (JavascriptExecutor) driver;
+        executor.executeScript("arguments[0].click();", addToCart);
+        driver.findElement(By.cssSelector("a[href='/cart']")).click();
         //кнопка удалить из корзины
-      
-        driver.findElement(By.xpath("//span[contains(text(), 'Удалить выбранные')]")).click();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='ui-aa5'][contains(text(), 'Удалить')]")));
-        driver.findElement(By.xpath("//div[@class='ui-aa5'][contains(text(), 'Удалить')]")).click();
-
+        WebElement removeFromCart = driver.findElement(By.cssSelector(".a5h5>span:nth-child(2)"));
+        executor.executeScript("arguments[0].click();", removeFromCart);
+        driver.findElement(By.cssSelector("[class='modal-container'] button>div")).click();
+        WebElement cartIsEmpty = driver.findElement(By.cssSelector("h1"));
+        assertTrue(cartIsEmpty.isDisplayed());
     }
 
     @After
-    public void tearDown() {
+    public void tearDown() throws Exception {
         driver.quit();
         String verificationErrorString = verificationErrors.toString();
         if (!"".equals(verificationErrorString)) {
@@ -100,4 +81,3 @@ public class Test_Git {
         }
     }
 }
-
