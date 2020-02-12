@@ -45,16 +45,11 @@ public class Test_Git {
         driver.findElement(By.name("search")).sendKeys("java шилдт");
         driver.findElement(By.name("search")).sendKeys(Keys.ENTER);
         //кнопка в корзину
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(), 'Java. Полное руководство | Шилдт Герберт')]")));
-//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h1[contains(text(), 'Компьютерные технологии')]")));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='ui-aa5'][contains(text(), 'В корзину')]")));
-        driver.findElement(By.xpath("//div[@class='ui-aa5'][contains(text(), 'В корзину')]")).click();
-        driver.findElement(By.xpath("//a[@href='/cart']")).click();
+        driver.findElement(By.xpath("//div[contains(@class,'ui-aa5') and contains(text(), 'В корзину')]")).click();
+        driver.findElement(By.xpath("//a[contains(@href,'/cart')]")).click();
         //кнопка удалить из корзины
-      
-        driver.findElement(By.xpath("//span[contains(text(), 'Удалить выбранные')]")).click();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='ui-aa5'][contains(text(), 'Удалить')]")));
-        driver.findElement(By.xpath("//div[@class='ui-aa5'][contains(text(), 'Удалить')]")).click();
+        driver.findElement(By.xpath("//span[contains(@class,'a6d3') and contains(text(), 'Удалить')]")).click();
+        driver.findElement(By.xpath("//div[contains(@class,'ui-aa5') and contains(text(), 'Удалить')]")).click();
 
     }
 
