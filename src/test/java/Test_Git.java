@@ -1,4 +1,5 @@
 import java.util.concurrent.TimeUnit;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.*;
 import static org.junit.Assert.*;
 import org.openqa.selenium.*;
@@ -12,7 +13,7 @@ public class Test_Git {
 
     @Before
     public void setUp() throws Exception {
-        System.setProperty("webdriver.chrome.driver","src\\main\\resources\\chromedriver.exe");
+        WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         baseUrl = "https://www.google.com/";
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
