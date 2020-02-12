@@ -27,16 +27,13 @@ public class Test_Git {
         driver.findElement(By.cssSelector("svg.ui-ai2")).click();
         driver.findElement(By.cssSelector("svg.ui-ai2")).click();
         //кнопка в корзину
-        WebElement addToCart = driver.findElement(By.cssSelector(".a8x6>.a8w8>div>div>button"));
-        JavascriptExecutor executor = (JavascriptExecutor) driver;
-        executor.executeScript("arguments[0].click();", addToCart);
-        driver.findElement(By.cssSelector("a[href='/cart']")).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='ui-aa5'][contains(text(), 'В корзину')]")));
+        driver.findElement(By.xpath("//div[@class='ui-aa5'][contains(text(), 'В корзину')]")).click();
+        driver.findElement(By.cssSelector("[data-widget='cart'] .f-caption--bold")).click();
         //кнопка удалить из корзины
-        WebElement removeFromCart = driver.findElement(By.cssSelector(".a5h5>span:nth-child(2)"));
-        executor.executeScript("arguments[0].click();", removeFromCart);
-        driver.findElement(By.cssSelector("[class='modal-container'] button>div")).click();
-        WebElement cartIsEmpty = driver.findElement(By.cssSelector("h1"));
-        assertTrue(cartIsEmpty.isDisplayed());
+        driver.findElement(By.xpath("//span[contains(text(), 'Удалить выбранные')]")).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='ui-aa5'][contains(text(), 'Удалить')]")));
+        driver.findElement(By.xpath("//div[@class='ui-aa5'][contains(text(), 'Удалить')]")).click();
     }
 
     @After
