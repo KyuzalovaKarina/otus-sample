@@ -20,20 +20,24 @@ public class Test_Git {
     }
 
     @Test
-    public void testSampleCase() throws Exception {
-        driver.get("https://www.ozon.ru/");
+    public void testSampleCase() {
+        driver.get(baseUrl);
         driver.findElement(By.name("search")).clear();
         driver.findElement(By.name("search")).sendKeys("java шилдт");
-        driver.findElement(By.cssSelector("svg.ui-ai2")).click();
-        driver.findElement(By.cssSelector("svg.ui-ai2")).click();
-
+        driver.findElement(By.name("search")).sendKeys(Keys.ENTER);
+		
         //кнопка в корзину
-        driver.findElement(By.xpath("//a[contains(text(), 'Шилдт') and contains(text(), 'Java')]/ancestor::div[@class='a1a7']" +
-                "//*[@qa-id='tile-buy-button']")).click(); // Fixed the locator here (Locator for the first element in the list)
-        driver.findElement(By.cssSelector("[data-widget='cart'] .f-caption--bold")).click(); // Fixed the locator here (Replaced dynamic svg on the css class)
-        //кнопка удалить из корзины
-        driver.findElement(By.xpath("//div[@class='a5g2']//*[contains(text(), 'Удалить')]")).click(); // Fixed the locator here
-        driver.findElement(By.xpath("//div[@class='modal-content']//button")).click(); // Fixed the locator here (Fixed this locator too)
+        wait.withTimeout(Duration.ofSeconds(30L))
+                .pollingEvery(Duration.ofSeconds(1L))
+                .until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[qa-id='tile-buy-button'] div")));
+        driver.findElement(By.cssSelector("button[qa-id='tile-buy-button'] div")).click();
+        
+		//кнопка удалить из корзины
+        driver.findElement(By.cssSelector("a[data-widget='cart']")).click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("div.b1m7.b1n3 div.b1n8 span:nth-child(2)")));
+        driver.findElement(By.cssSelector("div.b1m7.b1n3 div.b1n8 span:nth-child(2)")).click();
+        driver.findElement(By.cssSelector("section div.g3.g4 div button div")).click();
+
     }
 
     @After
