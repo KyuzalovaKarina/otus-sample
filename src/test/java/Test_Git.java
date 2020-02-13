@@ -1,61 +1,43 @@
+import java.util.concurrent.TimeUnit;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.*;
+import static org.junit.Assert.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.util.concurrent.TimeUnit;
-
-import static org.junit.Assert.fail;
 
 public class Test_Git {
-    private WebDriver driver;
-    WebDriverWait wait;
-    private String baseUrl = "https://www.ozon.ru/";
+    private WebDriver driver; //driver initialization
+    private String baseUrl;
     private boolean acceptNextAlert = true;
     private StringBuffer verificationErrors = new StringBuffer();
 
-    @BeforeClass
-    public static void setUpClass()
-    {
-        WebDriverManager.chromedriver().setup();
-    }
-
     @Before
-    public void setUp() {
+    public void setUp() throws Exception {
         WebDriverManager.chromedriver().setup();
-        ChromeOptions opt = new ChromeOptions();
-        opt.setPageLoadStrategy(PageLoadStrategy.NORMAL);
-        driver = new ChromeDriver(opt);
-        driver.manage().deleteAllCookies();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        wait = new WebDriverWait(driver, 5);
+        driver = new ChromeDriver();
+        baseUrl = "https://www.google.com/";
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
     @Test
-    public void testSampleCase() {
-        driver.get(baseUrl);
-        driver.findElement(By.name("search")).clear();
+    public void testSampleCase() throws Exception {
+        driver.get("https://www.ozon.ru/"); //open page
+        driver.findElement(By.name("search")).clear(); //field clearing
         driver.findElement(By.name("search")).sendKeys("java шилдт");
-        driver.findElement(By.name("search")).sendKeys(Keys.ENTER);
-        //кнопка в корзину
-        driver.findElement(By.xpath("//div[contains(@class,'ui-aa5') and contains(text(), 'В корзину')]")).click();
-        driver.findElement(By.xpath("//a[contains(@href,'/cart')]")).click();
-        //кнопка удалить из корзины
-        driver.findElement(By.xpath("//span[contains(@class,'a6d3') and contains(text(), 'Удалить')]")).click();
-        driver.findElement(By.xpath("//div[contains(@class,'ui-aa5') and contains(text(), 'Удалить')]")).click();
+        driver.findElement(By.cssSelector("svg.ui-ai2")).click();
+        driver.findElement(By.cssSelector("svg.ui-ai2")).click();
 
+        //кнопка в корзину
+		    driver.findElement(By.xpath("//button[@qa-id='tile-buy-button']")).click(); 
+        driver.findElement(By.cssSelector("svg.a3e8")).click(); 
+        //кнопка удалить из корзины
+        driver.findElement(By.xpath("//div[@class='column md-8']//span[2]")).click();
+        driver.findElement(By.xpath("//div[@class='ui-b7 g3']")).click();
     }
 
     @After
-    public void tearDown() {
-        driver.quit();
+    public void tearDown() throws Exception {
+        driver.quit(); //
         String verificationErrorString = verificationErrors.toString();
         if (!"".equals(verificationErrorString)) {
             fail(verificationErrorString);
@@ -95,4 +77,3 @@ public class Test_Git {
         }
     }
 }
-
