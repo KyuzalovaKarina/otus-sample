@@ -6,7 +6,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class Test_Git {
-    private WebDriver driver;
+    private WebDriver driver; //driver initialization
     private String baseUrl;
     private boolean acceptNextAlert = true;
     private StringBuffer verificationErrors = new StringBuffer();
@@ -21,8 +21,8 @@ public class Test_Git {
 
     @Test
     public void testSampleCase() throws Exception {
-        driver.get("https://www.ozon.ru/");
-        driver.findElement(By.name("search")).clear();
+        driver.get("https://www.ozon.ru/"); //open page
+        driver.findElement(By.name("search")).clear(); //field clearing
         driver.findElement(By.name("search")).sendKeys("java шилдт");
         driver.findElement(By.cssSelector("svg.ui-ai2")).click();
         driver.findElement(By.cssSelector("svg.ui-ai2")).click();
@@ -38,7 +38,7 @@ public class Test_Git {
 
     @After
     public void tearDown() throws Exception {
-        driver.quit();
+        driver.quit(); //
         String verificationErrorString = verificationErrors.toString();
         if (!"".equals(verificationErrorString)) {
             fail(verificationErrorString);
