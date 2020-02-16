@@ -1,10 +1,10 @@
+import java.util.concurrent.TimeUnit;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.*;
+import static org.junit.Assert.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -12,35 +12,34 @@ import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.fail;
 
+
 public class Test_Git {
-    private WebDriver driver;
-    WebDriverWait wait;
-    private String baseUrl = "https://www.ozon.ru/";
+    private WebDriver driver; //driver initialization
+    private String baseUrl;
     private boolean acceptNextAlert = true;
     private StringBuffer verificationErrors = new StringBuffer();
 
-    @BeforeClass
-    public static void setUpClass()
-    {
-        WebDriverManager.chromedriver().setup();
-    }
-
     @Before
     public void setUp() throws Exception {
+
 
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         baseUrl = "https://www.google.com/";
         driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
+
     }
 
     @Test
-    public void testSampleCase() {
-        driver.get(baseUrl);
-        driver.findElement(By.name("search")).clear();
+    public void testSampleCase() throws Exception {
+        driver.get("https://www.ozon.ru/"); //open page
+        driver.findElement(By.name("search")).clear(); //field clearing
         driver.findElement(By.name("search")).sendKeys("java шилдт");
-        driver.findElement(By.name("search")).sendKeys(Keys.ENTER);
+        driver.findElement(By.cssSelector("svg.ui-ai2")).click();
+        driver.findElement(By.cssSelector("svg.ui-ai2")).click();
+
         //кнопка в корзину
+
 
         if(isElementPresent(By.xpath(".//div[.//p[contains(text(),'Используя сайт OZON, вы соглашаетесь с использованием файлов cookie')]]")))
             driver.findElement(By.xpath(".//button[@aria-label='Закрыть сообщение']")).click();
@@ -53,12 +52,12 @@ public class Test_Git {
         element.click();
         if(isElementPresent(By.xpath(".//div[@data-test-id = 'modal-container']")))
             driver.findElement(By.xpath(".//button[.//div[contains(text(),'Удалить')]]")).click();
-    }
+
 
 
     @After
-    public void tearDown() {
-        driver.quit();
+    public void tearDown() throws Exception {
+        driver.quit(); //
         String verificationErrorString = verificationErrors.toString();
         if (!"".equals(verificationErrorString)) {
             fail(verificationErrorString);
@@ -98,4 +97,3 @@ public class Test_Git {
         }
     }
 }
-
