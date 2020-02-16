@@ -4,9 +4,12 @@ import org.junit.*;
 import static org.junit.Assert.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Test_Git {
     private WebDriver driver; //driver initialization
+    WebDriverWait wait;
     private String baseUrl;
     private boolean acceptNextAlert = true;
     private StringBuffer verificationErrors = new StringBuffer();
@@ -17,6 +20,7 @@ public class Test_Git {
         driver = new ChromeDriver();
         baseUrl = "https://www.google.com/";
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        wait = new WebDriverWait(driver, 5);
     }
 
     @Test
@@ -29,12 +33,17 @@ public class Test_Git {
         driver.findElement(By.cssSelector("svg.ui-ai2")).click();
 
         //кнопка в корзину
-        driver.findElement(By.xpath("//a[contains(text(), 'Шилдт') and contains(text(), 'Java')]/parent::div//button[@qa-id='tile-buy-button']")).click();
-        // Можно смотреть просто просто по кнопке В корзину
-        driver.findElement(By.cssSelector("[data-widget='cart'] .f-caption--bold")).click(); // Fixed the locator here (Replaced dynamic svg on the css class)
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(), 'Java. Полное руководство')]")));
+//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h1[contains(text(), 'Компьютерные технологии')]")));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[a[contains(text(), 'Java. Полное руководство')]]//div[@class='ui-aa5' and contains(text(), 'В корзину')]"))).click();
+//        driver.findElement(By.xpath("//div[@class='ui-aa5'][contains(text(), 'В корзину')]")).click();
+        driver.findElement(By.xpath("//a[@href='/cart']")).click();
         //кнопка удалить из корзины
-        driver.findElement(By.xpath("//div[@data-widget='split']//span[contains(text(), 'Удалить')]")).click(); // Fixed the locator here
-        driver.findElement(By.xpath("//div[@class='modal-content']//button")).click(); // Fixed the locator here (Fixed this locator too)
+      
+        driver.findElement(By.xpath("//span[contains(text(), 'Удалить выбранные')]")).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class = 'b9x9'  and contains(text(), 'Удалить')]"))).click();
+//        driver.findElement(By.xpath("//div[@class='ui-aa5'][contains(text(), 'Удалить')]")).click();
+
     }
 
     @After
@@ -79,3 +88,4 @@ public class Test_Git {
         }
     }
 }
+
