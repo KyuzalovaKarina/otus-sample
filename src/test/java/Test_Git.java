@@ -1,10 +1,9 @@
-import java.util.concurrent.TimeUnit;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.*;
-import static org.junit.Assert.*;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -41,7 +40,7 @@ public class Test_Git {
         //кнопка в корзину
 
 
-        if(isElementPresent(By.xpath(".//div[.//p[contains(text(),'Используя сайт OZON, вы соглашаетесь с использованием файлов cookie')]]")))
+        if (isElementPresent(By.xpath(".//div[.//p[contains(text(),'Используя сайт OZON, вы соглашаетесь с использованием файлов cookie')]]")))
             driver.findElement(By.xpath(".//button[@aria-label='Закрыть сообщение']")).click();
         driver.findElement(By.xpath(".//div[contains(text(),'В корзину')]")).click(); // Fixed the locator here (Locator for the first element in the list)
         driver.findElement(By.xpath(".//a[.//span[contains(text(), 'Корзина')]]")).click();
@@ -50,10 +49,10 @@ public class Test_Git {
         WebElement element = wait.until(
                 ExpectedConditions.presenceOfElementLocated(By.xpath(".//span[contains(text(),'Удалить выбранные')]")));
         element.click();
-        if(isElementPresent(By.xpath(".//div[@data-test-id = 'modal-container']")))
+        if (isElementPresent(By.xpath(".//div[@data-test-id = 'modal-container']")))
             driver.findElement(By.xpath(".//button[.//div[contains(text(),'Удалить')]]")).click();
 
-
+    }
 
     @After
     public void tearDown() throws Exception {
