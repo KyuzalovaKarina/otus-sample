@@ -6,7 +6,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class Test_Git {
-    private WebDriver driver;
+    private WebDriver driver; //driver initialization
     private String baseUrl;
     private boolean acceptNextAlert = true;
     private StringBuffer verificationErrors = new StringBuffer();
@@ -21,27 +21,25 @@ public class Test_Git {
 
     @Test
     public void testSampleCase() throws Exception {
+
         driver.get("https://www.ozon.ru/");
         driver.findElement(By.xpath("(//input[@name='search'])")).clear();
         driver.findElement(By.name("search")).sendKeys("java шилдт");
         driver.findElement(By.cssSelector("svg.ui-ai2")).click();
         driver.findElement(By.cssSelector("svg.ui-ai2")).click();
+
         //кнопка в корзину
-        WebElement addToCart = driver.findElement(By.cssSelector(".a8x6>.a8w8>div>div>button"));
-        JavascriptExecutor executor = (JavascriptExecutor) driver;
-        executor.executeScript("arguments[0].click();", addToCart);
-        driver.findElement(By.cssSelector("a[href='/cart']")).click();
+        driver.findElement(By.xpath("//a[contains(text(), 'Шилдт') and contains(text(), 'Java')]/parent::div//button[@qa-id='tile-buy-button']")).click();
+        // Можно смотреть просто просто по кнопке В корзину
+        driver.findElement(By.cssSelector("[data-widget='cart'] .f-caption--bold")).click(); // Fixed the locator here (Replaced dynamic svg on the css class)
         //кнопка удалить из корзины
-        WebElement removeFromCart = driver.findElement(By.cssSelector(".a5h5>span:nth-child(2)"));
-        executor.executeScript("arguments[0].click();", removeFromCart);
-        driver.findElement(By.cssSelector("[class='modal-container'] button>div")).click();
-        WebElement cartIsEmpty = driver.findElement(By.cssSelector("h1"));
-        assertTrue(cartIsEmpty.isDisplayed());
+        driver.findElement(By.xpath("//div[@data-widget='split']//span[contains(text(), 'Удалить')]")).click(); // Fixed the locator here
+        driver.findElement(By.xpath("//div[@class='modal-content']//button")).click(); // Fixed the locator here (Fixed this locator too)
     }
 
     @After
     public void tearDown() throws Exception {
-        driver.quit();
+        driver.quit(); //
         String verificationErrorString = verificationErrors.toString();
         if (!"".equals(verificationErrorString)) {
             fail(verificationErrorString);
