@@ -28,11 +28,11 @@ public class Test_Git {
         driver.findElement(By.cssSelector("svg.ui-ai2")).click();
 
         //кнопка в корзину
-        driver.findElement(By.xpath("//a[contains(text(), 'Шилдт') and contains(text(), 'Java')]/ancestor::div[@class='a1a7']" +
-                "//*[@qa-id='tile-buy-button']")).click(); // Fixed the locator here (Locator for the first element in the list)
+        driver.findElement(By.xpath("//a[contains(text(), 'Шилдт') and contains(text(), 'Java')]/parent::div//button[@qa-id='tile-buy-button']")).click();
+        // Можно смотреть просто просто по кнопке В корзину
         driver.findElement(By.cssSelector("[data-widget='cart'] .f-caption--bold")).click(); // Fixed the locator here (Replaced dynamic svg on the css class)
         //кнопка удалить из корзины
-        driver.findElement(By.xpath("//div[@class='a5g2']//*[contains(text(), 'Удалить')]")).click(); // Fixed the locator here
+        driver.findElement(By.xpath("//div[@data-widget='split']//span[contains(text(), 'Удалить')]")).click(); // Fixed the locator here
         driver.findElement(By.xpath("//div[@class='modal-content']//button")).click(); // Fixed the locator here (Fixed this locator too)
     }
 
