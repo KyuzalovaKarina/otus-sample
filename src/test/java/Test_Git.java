@@ -7,6 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+
 import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.fail;
@@ -14,6 +15,7 @@ import static org.junit.Assert.fail;
 
 public class Test_Git {
     private WebDriver driver; //driver initialization
+    WebDriverWait wait;
     private String baseUrl;
     private boolean acceptNextAlert = true;
     private StringBuffer verificationErrors = new StringBuffer();
@@ -25,19 +27,23 @@ public class Test_Git {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         baseUrl = "https://www.google.com/";
+
         driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
+
 
     }
 
     @Test
     public void testSampleCase() throws Exception {
-        driver.get("https://www.ozon.ru/"); //open page
-        driver.findElement(By.name("search")).clear(); //field clearing
+
+        driver.get("https://www.ozon.ru/");
+        driver.findElement(By.xpath("(//input[@name='search'])")).clear();
         driver.findElement(By.name("search")).sendKeys("java шилдт");
         driver.findElement(By.cssSelector("svg.ui-ai2")).click();
         driver.findElement(By.cssSelector("svg.ui-ai2")).click();
 
         //кнопка в корзину
+
 
 
         if (isElementPresent(By.xpath(".//div[.//p[contains(text(),'Используя сайт OZON, вы соглашаетесь с использованием файлов cookie')]]")))
@@ -51,6 +57,7 @@ public class Test_Git {
         element.click();
         if (isElementPresent(By.xpath(".//div[@data-test-id = 'modal-container']")))
             driver.findElement(By.xpath(".//button[.//div[contains(text(),'Удалить')]]")).click();
+
 
     }
 
@@ -96,3 +103,4 @@ public class Test_Git {
         }
     }
 }
+

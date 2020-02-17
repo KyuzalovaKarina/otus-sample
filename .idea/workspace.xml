@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="3fd28e58-36da-4dbd-bb4a-c253599fe00f" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <excluded-from-favorite>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="master" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </excluded-from-favorite>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="$PROJECT_DIR$/.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1XTvPzOa4jnLVjSxHmZXMzBf2le" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.Test_Git">
+    <configuration name="Test_Git" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="otus-sample" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="Test_Git" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test_Git.testSampleCase" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="otus-sample" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="Test_Git" />
+      <option name="METHOD_NAME" value="testSampleCase" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.Test_Git" />
+        <item itemvalue="JUnit.Test_Git.testSampleCase" />
+        <item itemvalue="JUnit.Test_Git.testSampleCase" />
+        <item itemvalue="JUnit.Test_Git" />
+        <item itemvalue="JUnit.Test_Git.testSampleCase" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3fd28e58-36da-4dbd-bb4a-c253599fe00f" name="Default Changelist" comment="" />
+      <created>1581082878354</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1581082878354</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="date">
+                    <value>
+                      <list>
+                        <option value="1581779253862" />
+                        <option value="" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="100" y="123" width="1240" height="629" key="DiffContextDialog" timestamp="1581261616962">
+      <screen x="0" y="23" width="1440" height="829" />
+    </state>
+    <state x="100" y="123" width="1240" height="629" key="DiffContextDialog/0.23.1440.829@0.23.1440.829" timestamp="1581261616962" />
+    <state width="1131" height="402" key="GridCell.Tab.0.bottom" timestamp="1581862348185">
+      <screen x="0" y="23" width="1440" height="829" />
+    </state>
+    <state width="1136" height="402" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1581259352316" />
+    <state width="1131" height="402" key="GridCell.Tab.0.bottom/0.23.1440.829@0.23.1440.829" timestamp="1581862348185" />
+    <state width="1131" height="402" key="GridCell.Tab.0.center" timestamp="1581862348184">
+      <screen x="0" y="23" width="1440" height="829" />
+    </state>
+    <state width="1136" height="402" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1581259352314" />
+    <state width="1131" height="402" key="GridCell.Tab.0.center/0.23.1440.829@0.23.1440.829" timestamp="1581862348184" />
+    <state width="1131" height="402" key="GridCell.Tab.0.left" timestamp="1581862348184">
+      <screen x="0" y="23" width="1440" height="829" />
+    </state>
+    <state width="1136" height="402" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1581259352313" />
+    <state width="1131" height="402" key="GridCell.Tab.0.left/0.23.1440.829@0.23.1440.829" timestamp="1581862348184" />
+    <state width="1131" height="402" key="GridCell.Tab.0.right" timestamp="1581862348185">
+      <screen x="0" y="23" width="1440" height="829" />
+    </state>
+    <state width="1136" height="402" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1581259352315" />
+    <state width="1131" height="402" key="GridCell.Tab.0.right/0.23.1440.829@0.23.1440.829" timestamp="1581862348185" />
+    <state width="699" height="266" key="GridCell.Tab.1.bottom" timestamp="1581260913140">
+      <screen x="0" y="23" width="1440" height="829" />
+    </state>
+    <state width="699" height="266" key="GridCell.Tab.1.bottom/0.23.1440.829@0.23.1440.829" timestamp="1581260913140" />
+    <state width="699" height="266" key="GridCell.Tab.1.center" timestamp="1581260913139">
+      <screen x="0" y="23" width="1440" height="829" />
+    </state>
+    <state width="699" height="266" key="GridCell.Tab.1.center/0.23.1440.829@0.23.1440.829" timestamp="1581260913139" />
+    <state width="699" height="266" key="GridCell.Tab.1.left" timestamp="1581260913139">
+      <screen x="0" y="23" width="1440" height="829" />
+    </state>
+    <state width="699" height="266" key="GridCell.Tab.1.left/0.23.1440.829@0.23.1440.829" timestamp="1581260913139" />
+    <state width="699" height="266" key="GridCell.Tab.1.right" timestamp="1581260913139">
+      <screen x="0" y="23" width="1440" height="829" />
+    </state>
+    <state width="699" height="266" key="GridCell.Tab.1.right/0.23.1440.829@0.23.1440.829" timestamp="1581260913139" />
+    <state x="516" y="176" key="Maven.ArtifactSearchDialog" timestamp="1581856716701">
+      <screen x="0" y="23" width="1440" height="829" />
+    </state>
+    <state x="516" y="176" key="Maven.ArtifactSearchDialog/0.23.1440.829@0.23.1440.829" timestamp="1581856716701" />
+    <state x="431" y="160" width="598" height="554" key="MultipleFileMergeDialog" timestamp="1581262923881">
+      <screen x="0" y="23" width="1440" height="829" />
+    </state>
+    <state x="431" y="160" width="598" height="554" key="MultipleFileMergeDialog/0.23.1440.829@0.23.1440.829" timestamp="1581262923881" />
+    <state x="164" y="23" width="1024" height="829" key="SettingsEditor" timestamp="1581256149066">
+      <screen x="0" y="23" width="1440" height="829" />
+    </state>
+    <state x="164" y="23" width="1024" height="829" key="SettingsEditor/0.23.1440.829@0.23.1440.829" timestamp="1581256149066" />
+    <state x="100" y="123" width="1240" height="629" key="ShowDiffWithBranchDialog" timestamp="1581261219960">
+      <screen x="0" y="23" width="1440" height="829" />
+    </state>
+    <state x="100" y="123" width="1240" height="629" key="ShowDiffWithBranchDialog/0.23.1440.829@0.23.1440.829" timestamp="1581261219960" />
+    <state x="320" y="198" key="Vcs.Push.Dialog.v2" timestamp="1581856311573">
+      <screen x="0" y="23" width="1440" height="829" />
+    </state>
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1581259752174" />
+    <state x="320" y="198" key="Vcs.Push.Dialog.v2/0.23.1440.829@0.23.1440.829" timestamp="1581856311573" />
+    <state x="100" y="123" width="1240" height="629" key="com.intellij.dvcs.ui.CompareBranchesDialog" timestamp="1581261030240">
+      <screen x="0" y="23" width="1440" height="829" />
+    </state>
+    <state x="100" y="123" width="1240" height="629" key="com.intellij.dvcs.ui.CompareBranchesDialog/0.23.1440.829@0.23.1440.829" timestamp="1581261030240" />
+    <state x="397" y="270" key="com.intellij.ide.util.TipDialog" timestamp="1581873843865">
+      <screen x="0" y="23" width="1440" height="829" />
+    </state>
+    <state x="397" y="270" key="com.intellij.ide.util.TipDialog/0.23.1440.829@0.23.1440.829" timestamp="1581873843865" />
+  </component>
+</project>
