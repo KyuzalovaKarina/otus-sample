@@ -22,43 +22,32 @@ public class Test_Git {
 
     @Before
     public void setUp() throws Exception {
-
-
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         baseUrl = "https://www.google.com/";
-
-        driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
-
-
+        driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
     }
 
     @Test
     public void testSampleCase() throws Exception {
-
         driver.get("https://www.ozon.ru/");
-        driver.findElement(By.xpath("(//input[@name='search'])")).clear();
+        driver.findElement(By.name("search")).clear();
         driver.findElement(By.name("search")).sendKeys("java шилдт");
-        driver.findElement(By.cssSelector("svg.ui-ai2")).click();
-        driver.findElement(By.cssSelector("svg.ui-ai2")).click();
+        driver.findElement(By.cssSelector("[qa-id=header-search-go]")).click();
 
         //кнопка в корзину
-
-
-
         if (isElementPresent(By.xpath(".//div[.//p[contains(text(),'Используя сайт OZON, вы соглашаетесь с использованием файлов cookie')]]")))
             driver.findElement(By.xpath(".//button[@aria-label='Закрыть сообщение']")).click();
-        driver.findElement(By.xpath(".//div[contains(text(),'В корзину')]")).click(); // Fixed the locator here (Locator for the first element in the list)
+        driver.findElement(By.xpath(".//div[contains(text(),'В корзину')]")).click();
         driver.findElement(By.xpath(".//a[.//span[contains(text(), 'Корзина')]]")).click();
-//        кнопка удалить из корзины
+
+        //кнопка удалить из корзины
         WebDriverWait wait = new WebDriverWait(driver, 50L);
         WebElement element = wait.until(
                 ExpectedConditions.presenceOfElementLocated(By.xpath(".//span[contains(text(),'Удалить выбранные')]")));
         element.click();
-        if (isElementPresent(By.xpath(".//div[@data-test-id = 'modal-container']")))
+        if (isElementPresent(By.cssSelector("[data-test-id = modal-container]")))
             driver.findElement(By.xpath(".//button[.//div[contains(text(),'Удалить')]]")).click();
-
-
     }
 
     @After
@@ -103,4 +92,3 @@ public class Test_Git {
         }
     }
 }
-
