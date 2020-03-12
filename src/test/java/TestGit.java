@@ -7,13 +7,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-
 import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.fail;
 
 
-public class Test_Git {
+public class TestGit {
     private WebDriver driver; //driver initialization
     WebDriverWait wait;
     private String baseUrl;
@@ -33,7 +32,7 @@ public class Test_Git {
         driver.get("https://www.ozon.ru/");
         driver.findElement(By.name("search")).clear();
         driver.findElement(By.name("search")).sendKeys("java шилдт");
-        driver.findElement(By.cssSelector("[qa-id=header-search-go]")).click();
+        driver.findElement(By.cssSelector("form")).submit();
 
         //кнопка в корзину
         if (isElementPresent(By.xpath(".//div[.//p[contains(text(),'Используя сайт OZON, вы соглашаетесь с использованием файлов cookie')]]")))
